@@ -1,6 +1,6 @@
-var flappyBird = require('./flappy_bird');
+var flappyBat = require('./flappy_bat');
 
 document.addEventListener('DOMContentLoaded', function(){
-	var app = new flappyBird.FlappyBird();
+	var app = new flappyBat.FlappyBat();
 	app.run();
 });
