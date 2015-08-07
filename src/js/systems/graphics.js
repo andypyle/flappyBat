@@ -33,8 +33,10 @@ GraphicsSystem.prototype.tick = function(){
 		if(!'graphics' in entity.components){
 			continue;
 		}
+		frame += 1;
 
-		entity.components.graphics.draw(this.context, (frame += 1 * .5));
+
+		entity.components.graphics.draw(this.context, frame);
 	}
 	this.context.restore();
 	
