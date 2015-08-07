@@ -3,9 +3,16 @@ var BatGraphicsComponent = function(entity){
 };
 
 BatGraphicsComponent.prototype.draw = function(context){
+	var position = this.entity.components.physics.position;
+
+	context.save();
+	context.translate(position.x, position.y);
 	context.beginPath();
-	context.rect(-1, 0, 2, .1);
+	context.arc(0,0, 0.02, 0, 2 * Math.PI);
+	context.fillType = 'red';
 	context.fill();
+	context.closePath();
+	context.restore();
 };
 
 exports.BatGraphicsComponent = BatGraphicsComponent;
