@@ -1,6 +1,6 @@
 var graphicsComponent = require('../components/graphics/tree');
 var Tree = function(){
-	console.log('Creating tree entity.');
+	//console.log('Creating tree entity.');
 
 	var graphics = new graphicsComponent.TreeGraphicsComponent(this);
 

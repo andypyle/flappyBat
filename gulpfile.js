@@ -104,13 +104,11 @@ gulp.task('jshint', function() {
 
 // JavaScript minify
 gulp.task('scripts', function() {
-  return watchify(browserify('./src/js/main.js'))
+  return browserify('./src/js/main.js')
     .bundle()
     .pipe(source('app.js'))
     .pipe(buffer())
-    .pipe(gulp.dest(sources.build.js))
     .pipe(uglify())
-    .pipe(gulp.dest(sources.js.out))
     .pipe(gulp.dest(sources.build.js));
 });
 /// End JS minify
@@ -141,10 +139,7 @@ gulp.task('build', ['jshint', 'scripts','sass', 'images', 'jade']);
 
 
 gulp.task('watch', function(){
-    gulp.watch(['./src/sass/**/*.sass', './src/jade/**/*.jade'], ['sass','jade']);
-    gulp.watch('./src/js/**/*.js', ['jshint','scripts', function(){
-        console.log('Bundling scripts completed.');
-    }]);
+    gulp.watch(['./src/sass/**/*.sass', './src/jade/**/*.jade','./src/js/**/*.js'], ['sass','jade','scripts']);
 });
 
-gulp.task('default', ['connect','sass','jade','jshint','watch']);
+gulp.task('default', ['connect','sass','jade','jshint','scripts','watch']);
