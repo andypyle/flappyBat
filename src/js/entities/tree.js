@@ -1,5 +1,6 @@
 var graphicsComponent = require('../components/graphics/tree');
 var physicsComponent = require('../components/physics/physics');
+var collisionComponent = require('../components/collision/rect');
 
 function randomReal(min,max) { 
 	return Math.random() * (max - min) + min;
@@ -11,30 +12,24 @@ var Tree = function(){
 	physics.acceleration.x = -0.25;
 	physics.velocity.x = 0.25;
 
-	var gap = 0.25;
-	var y = randomReal(0.1, 1 - gap);
+	
+	gap = 0.25;
+	y = randomReal(0.25, 1 - gap);
 
-	var topBlock = {
-		y: 1 - y,
+	treePositions = {
+		y: 0,
 		height: y
 	};
 
-	var bottomBlock = {
-		y: 0,
-		height: 1 - y - gap
-	};
-
-	var blocksPositions = {
-		top: topBlock,
-		bottom: bottomBlock
-	};
-
-	var graphics = new graphicsComponent.TreeGraphicsComponent(this);
+	graphics = new graphicsComponent.TreeGraphicsComponent(this);
+	collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1, y: 1});
 
 	this.components = {
 		physics: physics,
 		graphics: graphics,
-		positions: blocksPositions
+		positions: treePositions,
+		collision: collision,
+		name: 'Tree'
 	};
 };
 

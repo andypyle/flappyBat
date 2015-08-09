@@ -4,6 +4,7 @@ var inputSystem = require('./systems/input');
 
 var bat = require('./entities/bat');
 var tree = require('./entities/tree');
+var cloud = require('./entities/cloud');
 
 function randomTime(min,max) { 
 	return Math.random() * (max - min) + min;
@@ -11,12 +12,16 @@ function randomTime(min,max) {
 
 var FlappyBat = function(){
 	
-	this.entities = [new bat.Bat(), new tree.Tree()];
+	this.entities = [new bat.Bat()];
 	var self = this.entities;
 
 	window.setInterval(function(){
 		self.push(new tree.Tree());
-		}, randomTime(2000, 3000));
+		}, randomTime(1500, 2000));
+
+	window.setInterval(function(){
+		self.push(new cloud.Cloud());
+		}, randomTime(2500, 4500));
 
 	this.graphics = new graphicsSystem.GraphicsSystem(this.entities);
 	this.physics = new physicsSystem.PhysicsSystem(this.entities);

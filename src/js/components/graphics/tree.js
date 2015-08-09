@@ -2,7 +2,7 @@ var TreeGraphicsComponent = function(entity){
 	this.entity = entity;
 };
 
-TreeGraphicsComponent.prototype.draw = function(context, frame){
+TreeGraphicsComponent.prototype.draw = function(context){
 
 	var position = this.entity.components.physics.position;
 	var blockPos = this.entity.components.positions;
@@ -10,15 +10,10 @@ TreeGraphicsComponent.prototype.draw = function(context, frame){
 	context.save();
 	context.translate(position.x, position.y);
 	context.beginPath();
-	context.rect(0,blockPos.bottom.y,0.1,blockPos.bottom.height);
+	context.rect(0,blockPos.y,0.1,blockPos.height);
 	context.fill();
 	context.closePath();
-	context.beginPath();
-	context.rect(0,blockPos.top.y,0.1,blockPos.top.height);
-	context.fill();
-	context.closePath();
-	context.restore();	
-
+	context.restore();
 };
 
 exports.TreeGraphicsComponent = TreeGraphicsComponent;
