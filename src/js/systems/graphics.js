@@ -8,8 +8,12 @@ var GraphicsSystem = function(entities){
 
 GraphicsSystem.prototype.run = function(){
 	// Run render loop.
-	window.requestAnimationFrame(this.tick.bind(this));
+	renderLoop = window.requestAnimationFrame(this.tick.bind(this));
 	frame = 0;
+};
+
+gameOver = function(){
+	
 };
 
 GraphicsSystem.prototype.tick = function(){
@@ -45,3 +49,4 @@ GraphicsSystem.prototype.tick = function(){
 };
 
 exports.GraphicsSystem = GraphicsSystem;
+exports.GameOverGraphics = gameOver;

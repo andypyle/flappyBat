@@ -30,7 +30,7 @@ var sources = {
     'out':'./',
     'opts':{
       'locals': {},
-      'pretty': true
+      'pretty': '\t'
     }
   },
   'js':{

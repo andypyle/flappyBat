@@ -13,7 +13,7 @@ var Cloud = function(){
 	physics.velocity.x = 0.15;
 	physics.position.y = 1;
 
-	y = randomReal(0.5, 1);
+	y = randomReal(0.75, 1);
 
 	cloudPositions = {
 		y: 0,

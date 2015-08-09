@@ -22,7 +22,8 @@ var Tree = function(){
 	};
 
 	graphics = new graphicsComponent.TreeGraphicsComponent(this);
-	collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1, y: 1});
+	collision = new collisionComponent.RectCollisionComponent(this, {x: 0.1 / 5, y: 1});
+	collision.onCollision = this.onCollision.bind(this);
 
 	this.components = {
 		physics: physics,

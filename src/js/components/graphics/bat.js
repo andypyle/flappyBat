@@ -9,7 +9,7 @@ BatGraphicsComponent.prototype.draw = function(context){
 	context.translate(position.x, position.y);
 	context.beginPath();
 	context.arc(0,0, 0.02, 0, 2 * Math.PI);
-	context.fillStyle = '#FF0000';
+	context.fillStyle = '#0000FE';
 	context.fill();
 	context.closePath();
 	context.restore();
